@@ -6,7 +6,7 @@ POST = 10
 
 
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:POST]
+    posts = Post.objects.all()[:POST]
     # В словаре context отправляем информацию в шаблон
     context = {
         'posts': posts,
@@ -16,7 +16,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).order_by('-pub_date')[:POST]
+    posts = Post.objects.all().filter(group=group)[:POST]
     context = {
         'group': group,
         'posts': posts,
