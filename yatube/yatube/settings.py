@@ -11,6 +11,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'posts',
     'templates',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,7 +73,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = "ru"
 
 TIME_ZONE = 'UTC'
 
