@@ -6,7 +6,7 @@
 
 {% block content %}
   <h1> {{group.title}} - {{group.description}} </h1>
-  {% for post in posts %}
+  {% for post in page_obj %}
     {% include 'includes/article.html' %}
     {% if not forloop.last %}<hr>{% endif %}
   {% endfor %} 
