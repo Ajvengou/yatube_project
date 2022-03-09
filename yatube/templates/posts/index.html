@@ -5,9 +5,16 @@
 {% block content%}
   {% for post in page_obj %}
     {% include 'includes/article.html' %}  
-    {% if post.group %}   
-      <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
-    {% endif %} 
+    <li>
+      {% if post.group %}   
+        <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+      {% endif %}
+    </li>  
+    <li>
+    <a href="{% url 'posts:profile' post.author.username %}">
+      все посты пользователя
+    </a>
+    </li>
     {% if not forloop.last %}<hr>{% endif %}
   {% endfor %}
   {% include 'includes/paginator.html' %}
