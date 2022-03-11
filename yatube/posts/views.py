@@ -34,7 +34,6 @@ def group_posts(request, slug):
     return render(request, 'posts/group_list.html', context)
 
 
-@login_required
 def profile(request, username):
     author = get_object_or_404(User, username=username)
     posts = Post.objects.filter(author=author)
@@ -65,7 +64,6 @@ def post_detail(request, post_id):
     return render(request, 'posts/post_detail.html', context)
 
 
-@login_required
 def post_create(request):
     template = 'posts/create_post.html'
     form = PostForm(request.POST or None)
@@ -77,7 +75,6 @@ def post_create(request):
     return render(request, template, {'form': form})
 
 
-@login_required
 def post_edit(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     if post.author != request.user:
