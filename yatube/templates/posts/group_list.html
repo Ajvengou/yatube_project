@@ -11,6 +11,7 @@
   <p>{{group.description}}</p>
   {% for post in page_obj %}
     {% include 'includes/article.html' %}
+    <a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a>
     {% if not forloop.last %}<hr>{% endif %}
   {% endfor %} 
 {% endblock %}
